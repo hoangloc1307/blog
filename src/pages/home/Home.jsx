@@ -1,13 +1,13 @@
 import React from "react";
 import "./home.scss";
 import Hero from "../../components/hero/Hero";
-import CategoryCard from "../../components/category_card/CategoryCard";
+import CategoryBox from "../../components/category_card/CategoryBox";
 
 function Home() {
   return (
     <>
       <Hero />
-      <CategoryCard />
+      <CategoryBox />
     </>
   );
 }

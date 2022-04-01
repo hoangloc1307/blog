@@ -1,11 +1,13 @@
 .category-cards {
-  padding: 60px 0;
+  padding: 96px 0;
   .category-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .card {
       width: 30%;
+      display: block;
+      color: inherit;
       &__container {
         width: 100%;
         height: 300px;
@@ -36,7 +38,7 @@
       &__line {
         display: block;
         margin: 0 auto;
-        width: 36px;
+        width: 24px;
         height: 3px;
         background: #2f2e2e;
       }

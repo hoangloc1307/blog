@@ -1,21 +1,26 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import "./navbar.scss";
 
 function NavBar() {
+  const activeClass = ({ isActive }) =>
+    isActive ? "nav__link nav__link--active" : "nav__link";
+
   return (
     <div className="navbar">
       <div className="container">
         <div className="navbar-contain">
           <ul className="nav">
             <li className="nav__item">
-              <a href="#" className="nav__link nav__link--active">
+              <NavLink to="/" className={activeClass}>
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <NavLink to="about" className={activeClass}>
                 About
-              </a>
+              </NavLink>
             </li>
             <li className="nav__item">
               <a href="#" className="nav__link">
