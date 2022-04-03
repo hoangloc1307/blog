@@ -1,5 +1,5 @@
 .post{
-    margin: 60px 0;
+    margin-bottom: 60px;
     .post__image-container{
         display: block;
         .post__image{
@@ -30,6 +30,9 @@
             display: block;
             color: #2f2e2e;
             margin-top: 12px;
+            &:hover{
+                color: #faaa62;
+            }
             .post__title{
                 font-family: 'Source Serif Pro', serif;
                 font-size: 24px;
@@ -48,10 +51,19 @@
             position: relative;
             .post__comment{
                 margin-left: 24px;
+                &:hover{
+                    color: #faaa62;
+                    cursor: pointer;
+                }
             }
             .post__like{
                 position: absolute;
                 right: 0;
+                &:hover{
+                    color: #e84a43;
+                    cursor: pointer;
+                }
+
             }
         }
     }

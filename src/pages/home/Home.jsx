@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./home.scss";
+import { postList } from "../../assets/fake_data/post";
 import Hero from "../../components/hero/Hero";
 import CategoryBox from "../../components/category_card/CategoryBox";
-import PostBox from "../../components/post_card/PostBox";
+import Posts from "../../components/posts/Posts";
+import SideBar from "../../components/sidebar/SideBar";
 
 function Home() {
+  const [posts, setPosts] = useState(postList);
   return (
-    <>
+    <div className="page">
       <Hero />
       <div className="container">
         <CategoryBox />
-        <PostBox />
+        <div className="home">
+          <Posts posts={posts} />
+          <SideBar />
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

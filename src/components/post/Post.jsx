@@ -1,19 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import postImage from "../../assets/images/blog_1.jpg";
+import "./post.scss";
 import avatar from "../../assets/images/avatar.jpg";
 
-function Post() {
+function Post({ post }) {
   return (
     <div className="post">
       <Link to={"/"} className="post__image-container">
-        <img
-          src={postImage}
-          alt="Fresh from Our Garden"
-          className="post__image"
-          style={{}}
-        />
+        <img src={post.image} alt={post.title} className="post__image" />
       </Link>
       <div className="post__content">
         <div className="post__user">
@@ -23,28 +18,26 @@ function Post() {
           <div className="user__info">
             <p className="user__name">Admin</p>
             <p className="user__datetime">
-              <span className="user__date">Apr 2nd, 2022</span>
+              <span className="user__date">
+                {post.createdAt.toDateString()}
+              </span>
               <span className="user__time">2 min</span>
             </p>
           </div>
         </div>
         <Link to={"/"} className="post__link">
-          <h3 className="post__title">Fresh from Our Garden</h3>
-          <p className="post__description">
-            Create a blog post subtitle that summarizes your post in a few
-            short, punchy sentences and entices your audience to continue
-            reading....
-          </p>
+          <h3 className="post__title">{post.title}</h3>
+          <p className="post__description">{post.description}</p>
         </Link>
         <div className="post__interaction">
           <div className="post__view">
-            <i className="fa-regular fa-eye"></i> 15
+            <i className="fa-regular fa-eye"></i> {post.view}
           </div>
           <div className="post__comment">
-            <i className="fa-regular fa-message"></i> 20
+            <i className="fa-regular fa-message"></i> {post.comment}
           </div>
           <div className="post__like">
-            9 <i className="fa-regular fa-heart"></i>
+            {post.like} <i className="fa-regular fa-heart"></i>
           </div>
         </div>
       </div>

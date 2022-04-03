@@ -1,0 +1,42 @@
+.footer{
+    padding: 60px 0 24px;
+    background-color: #ffe5ce;
+    &__tiltle{
+        text-align: center;
+        font-weight: 300;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    &__form{
+        margin: 12px auto 36px;
+        text-align: center;
+        width: 40vw;
+    }
+    &__input{
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        outline: none;
+        border: 2px solid #2f2e2e;
+        font-weight: 400;
+        font-size: 15px;
+    }
+    &__button{
+        width: 100%;
+        margin-top: 6px;
+        padding: 12px 24px;
+        background-color: #2f2e2e;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: 15px;
+        &:hover{
+            background-color: #5e5b5b;
+            cursor: pointer;
+        }
+    }
+    &__copyright{
+        text-align: center;
+    }
+}

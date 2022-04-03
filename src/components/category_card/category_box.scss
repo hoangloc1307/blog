@@ -1,12 +1,12 @@
 .category-cards {
   padding: 96px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   .category-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .card {
-      width: 30%;
+    width: 30%;
       display: block;
+    .card {
       color: inherit;
       &__container {
         width: 100%;
