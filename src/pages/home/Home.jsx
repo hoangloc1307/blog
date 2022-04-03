@@ -8,7 +8,16 @@ import Posts from "../../components/posts/Posts";
 import SideBar from "../../components/sidebar/SideBar";
 
 function Home() {
-  const [posts, setPosts] = useState(postList);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPost = () => {
+      const result = postList;
+      setPosts(result);
+    };
+    fetchPost();
+  }, []);
+
   return (
     <div className="page">
       <Hero />
