@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./about.scss";
 
 function About() {
+  useEffect(() => {
+    document.title = "About | Blog";
+  }, []);
+
   return (
     <div className="about">
       <div className="container">

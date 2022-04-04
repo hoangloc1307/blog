@@ -1,0 +1,22 @@
+.go-top{
+    width: 48px;
+    height: 48px;
+    background-color: #ffe5ce;
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: none;
+    transform: translateY(50%);
+    opacity: 0;
+    transition: 0.35s ease-in-out;
+    &.show{
+        pointer-events: auto;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

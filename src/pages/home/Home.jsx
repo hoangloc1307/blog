@@ -16,6 +16,8 @@ function Home() {
       setPosts(result);
     };
     fetchPost();
+
+    document.title = "Blog";
   }, []);
 
   return (
