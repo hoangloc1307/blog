@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 
 import Post from "../post/Post";
 
 function Posts({ posts }) {
+  console.log("post");
   useEffect(() => {
     const imageHeightRatio = (ratio) => {
       const images = document.querySelectorAll(".post__image");
@@ -24,4 +25,4 @@ function Posts({ posts }) {
   );
 }
 
-export default Posts;
+export default memo(Posts);

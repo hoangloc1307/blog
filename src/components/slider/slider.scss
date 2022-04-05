@@ -1,0 +1,27 @@
+.slider{
+    overflow: hidden;
+    margin: 36px 0;
+    position: relative;
+    &__slide{
+        display: flex;
+        .slide{
+            width: 275px;
+            height: 275px;
+        }
+    }
+    &__button{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        font-size: 48px;
+        cursor: pointer;
+        pointer-events: none;
+        .prev, .next{
+            padding: 0 24px;
+            pointer-events: auto;
+        }
+    }
+}
