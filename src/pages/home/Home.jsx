@@ -42,7 +42,7 @@ function Home() {
           <SideBar />
         </div>
       </div>
-      <Slider slides={slides} />
+      <Slider slides={slides} show={4} />
     </div>
   );
 }
