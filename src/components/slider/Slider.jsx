@@ -1,9 +1,12 @@
-import React, { memo, useEffect, useMemo, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 
 import "./slider.scss";
 
 function Slider({ slides, show }) {
   const [firstSlide, setfirstSlide] = useState(1);
+
+  const prevBtn = useRef();
+  const nextBtn = useRef();
 
   useEffect(() => {
     if (slides.length > 0) {
@@ -18,20 +21,31 @@ function Slider({ slides, show }) {
     }
   }, [slides, show]);
 
+  useEffect(() => {
+    if (firstSlide === 1) {
+      prevBtn.current.style.visibility = "hidden";
+    } else if (firstSlide > slides.length - show) {
+      nextBtn.current.style.visibility = "hidden";
+    } else {
+      prevBtn.current.style.visibility = "visible";
+      nextBtn.current.style.visibility = "visible";
+    }
+  }, [firstSlide]);
+
   const handleControlClick = (direction) => {
     const slideContainer = document.querySelector(".slider .slider__slides");
     const slide = document.querySelector(".slider .slide__image");
     const slideWidth = slide.clientWidth;
-    if (direction == "prev") {
+
+    if (direction === "prev") {
       if (firstSlide > 1) {
         slideContainer.style.transform = `translate(-${
           slideWidth * firstSlide - 2 * slideWidth
         }px)`;
-
         setfirstSlide(firstSlide - 1);
       }
     }
-    if (direction == "next") {
+    if (direction === "next") {
       if (firstSlide <= slides.length - show) {
         slideContainer.style.transform = `translate(-${
           slideWidth * firstSlide
@@ -52,16 +66,24 @@ function Slider({ slides, show }) {
               src={slide.image}
               alt={`Slide ${index}`}
             />
-            <div className="slide__overlay"></div>
+            <div className="slide__content">{slide.content}</div>
           </div>
         ))}
       </div>
       <div className="slider__control">
         <div className="slider__buttons">
-          <div className="prev" onClick={() => handleControlClick("prev")}>
+          <div
+            ref={prevBtn}
+            className="prev"
+            onClick={() => handleControlClick("prev")}
+          >
             <i className="fa-solid fa-chevron-left"></i>
           </div>
-          <div className="next" onClick={() => handleControlClick("next")}>
+          <div
+            ref={nextBtn}
+            className="next"
+            onClick={() => handleControlClick("next")}
+          >
             <i className="fa-solid fa-chevron-right"></i>
           </div>
         </div>
