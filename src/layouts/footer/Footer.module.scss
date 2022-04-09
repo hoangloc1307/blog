@@ -1,19 +1,19 @@
 .footer{
     padding: 60px 0 24px;
     background-color: #ffe5ce;
-    &__tiltle{
+    .footerTiltle{
         text-align: center;
         font-weight: 300;
         font-size: 20px;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
-    &__form{
+    .footerForm{
         margin: 12px auto 36px;
         text-align: center;
         width: 40vw;
     }
-    &__input{
+    .footerInput{
         display: block;
         width: 100%;
         padding: 6px 12px;
@@ -22,7 +22,7 @@
         font-weight: 400;
         font-size: 15px;
     }
-    &__button{
+    .footerButton{
         width: 100%;
         margin-top: 6px;
         padding: 12px 24px;
@@ -37,7 +37,7 @@
             cursor: pointer;
         }
     }
-    &__copyright{
+    .footerCopyright{
         text-align: center;
     }
 }

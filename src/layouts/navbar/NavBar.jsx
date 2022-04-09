@@ -1,61 +1,58 @@
+import clsx from "clsx";
 import React from "react";
 import { NavLink } from "react-router-dom";
-
-import "./navbar.scss";
+import c from "./NavBar.module.scss";
 
 function NavBar() {
   const activeClass = ({ isActive }) =>
-    isActive ? "nav__link nav__link--active" : "nav__link";
-
+    clsx(c.navLink, { [c.active]: isActive });
   return (
-    <div className="navbar">
-      <div className="container">
-        <div className="navbar-contain">
-          <ul className="nav">
-            <li className="nav__item">
-              <NavLink to="/" className={activeClass}>
-                Home
-              </NavLink>
-            </li>
-            <li className="nav__item">
-              <NavLink to="about" className={activeClass}>
-                About
-              </NavLink>
-            </li>
-            <li className="nav__item">
-              <a href="#" className="nav__link">
-                Lifestyle
-              </a>
-            </li>
-            <li className="nav__item">
-              <a href="#" className="nav__link">
-                Family
-              </a>
-            </li>
-            <li className="nav__item">
-              <a href="#" className="nav__link">
-                Food
-              </a>
-            </li>
-          </ul>
-          <ul className="social">
-            <li className="social__item">
-              <a href="#" className="social__link">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-            </li>
-            <li className="social__item">
-              <a href="#" className="social__link">
-                <i className="fa-brands fa-instagram"></i>
-              </a>
-            </li>
-            <li className="social__item">
-              <a href="#" className="social__link">
-                <i className="fa-brands fa-twitter"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+    <div className={c.navbar}>
+      <div className={clsx(c.navbarContainer, "container")}>
+        <ul className={c.nav}>
+          <li className={c.navItem}>
+            <NavLink to="/" className={activeClass}>
+              Home
+            </NavLink>
+          </li>
+          <li className={c.navItem}>
+            <NavLink to="/about" className={activeClass}>
+              About
+            </NavLink>
+          </li>
+          <li className={c.navItem}>
+            <NavLink to={"/a"} className={activeClass}>
+              Lifestyle
+            </NavLink>
+          </li>
+          <li className={c.navItem}>
+            <NavLink to={"/b"} className={activeClass}>
+              Family
+            </NavLink>
+          </li>
+          <li className={c.navItem}>
+            <NavLink to={"/c"} className={activeClass}>
+              Food
+            </NavLink>
+          </li>
+        </ul>
+        <ul className={c.social}>
+          <li className={c.socialItem}>
+            <a href="#" className={c.socialLink}>
+              <i className="fa-brands fa-facebook-f"></i>
+            </a>
+          </li>
+          <li className={c.socialItem}>
+            <a href="#" className={c.socialLink}>
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+          </li>
+          <li className={c.socialItem}>
+            <a href="#" className={c.socialLink}>
+              <i className="fa-brands fa-twitter"></i>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );

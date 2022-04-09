@@ -1,9 +1,10 @@
+import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 
-import "./go_to_top.scss";
+import c from "./ScrollTop.module.scss";
 
-function GoToTop() {
-  const handleGoToTop = () => {
+function ScrollTop() {
+  const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -20,10 +21,13 @@ function GoToTop() {
   }, []);
 
   return (
-    <div className={"go-top " + (show ? "show" : "")} onClick={handleGoToTop}>
+    <div
+      className={clsx(c.goTop, { [c.show]: show })}
+      onClick={handleScrollTop}
+    >
       <i className="fa-solid fa-chevron-up"></i>
     </div>
   );
 }
 
-export default GoToTop;
+export default ScrollTop;

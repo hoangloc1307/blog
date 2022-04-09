@@ -1,21 +1,19 @@
-.category-cards {
+.categoryCard {
   padding: 96px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .category-card {
+  .card {
+    color: inherit;
     width: 30%;
-      display: block;
-    .card {
-      color: inherit;
-      &__container {
-        width: 100%;
-        height: 300px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
-      &__content {
+    display: block;
+    .cardContainer {
+      width: 100%;
+      height: 300px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      .cardContent {
         text-align: center;
         background: #ffe5ce;
         width: 80%;
@@ -25,20 +23,20 @@
         transform: translate(-50%, 50%);
         padding: 24px 0;
       }
-      &__title {
+      .cardTitle {
         text-transform: capitalize;
         font-size: 32px;
         font-family: "Dancing Script", cursive;
       }
-      &__description {
+      .cardDescription {
         margin: 12px 0;
         font-size: 15px;
       }
-      &__line {
+      .cardLine {
         display: block;
         margin: 0 auto;
         width: 24px;
-        height: 3px;
+        height: 2px;
         background: #2f2e2e;
       }
     }

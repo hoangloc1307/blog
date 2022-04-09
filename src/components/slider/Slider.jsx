@@ -1,20 +1,21 @@
 import React, { memo, useEffect, useRef, useState } from "react";
 
-import "./slider.scss";
+import c from "./Slider.module.scss";
 
 function Slider({ slides, show }) {
+  //State
   const [firstSlide, setfirstSlide] = useState(1);
-
-  const prevBtn = useRef();
-  const nextBtn = useRef();
+  //Ref
+  const prevButtonRef = useRef();
+  const nextButtonRef = useRef();
+  const slidesRef = useRef();
+  const slideImageRefs = useRef([]);
 
   useEffect(() => {
     if (slides.length > 0) {
       const documentWidth = document.body.clientWidth;
       const slideWidth = documentWidth / show;
-      const slideItems = document.querySelectorAll(".slider .slide__image");
-
-      slideItems.forEach((item) => {
+      slideImageRefs.current.forEach((item) => {
         item.style.width = `${slideWidth}px`;
         item.style.height = `${slideWidth}px`;
       });
@@ -23,71 +24,78 @@ function Slider({ slides, show }) {
 
   useEffect(() => {
     if (firstSlide === 1) {
-      prevBtn.current.style.visibility = "hidden";
-    } else if (firstSlide > slides.length - show) {
-      nextBtn.current.style.visibility = "hidden";
+      prevButtonRef.current.style.visibility = "hidden";
     } else {
-      prevBtn.current.style.visibility = "visible";
-      nextBtn.current.style.visibility = "visible";
+      prevButtonRef.current.style.visibility = "visible";
+    }
+    if (firstSlide > slides.length - show) {
+      nextButtonRef.current.style.visibility = "hidden";
+    } else {
+      nextButtonRef.current.style.visibility = "visible";
     }
   }, [firstSlide]);
 
   const handleControlClick = (direction) => {
-    const slideContainer = document.querySelector(".slider .slider__slides");
-    const slide = document.querySelector(".slider .slide__image");
-    const slideWidth = slide.clientWidth;
-
-    if (direction === "prev") {
-      if (firstSlide > 1) {
-        slideContainer.style.transform = `translate(-${
-          slideWidth * firstSlide - 2 * slideWidth
-        }px)`;
-        setfirstSlide(firstSlide - 1);
-      }
+    const slideWidth = slideImageRefs.current[0].clientWidth;
+    //Click next button
+    if (direction === "next" && firstSlide <= slides.length - show) {
+      slidesRef.current.style.transform = `translate(-${
+        slideWidth * firstSlide
+      }px)`;
+      setfirstSlide(firstSlide + 1);
     }
-    if (direction === "next") {
-      if (firstSlide <= slides.length - show) {
-        slideContainer.style.transform = `translate(-${
-          slideWidth * firstSlide
-        }px)`;
+    //Click prev button
+    if (direction === "prev" && firstSlide > 1) {
+      slidesRef.current.style.transform = `translate(-${
+        slideWidth * (firstSlide - 2)
+      }px)`;
+      setfirstSlide(firstSlide - 1);
+    }
+  };
 
-        setfirstSlide(firstSlide + 1);
-      }
+  const addSlideImageRef = (e) => {
+    if (e && !slideImageRefs.current.includes(e)) {
+      slideImageRefs.current.push(e);
     }
   };
 
   return (
-    <div className="slider">
-      <div className="slider__slides">
+    <div className={c.slider}>
+      {/* Slide Items*/}
+      <div ref={slidesRef} className={c.slides}>
         {slides.map((slide, index) => (
-          <div className="slide" key={slide.id}>
+          <div className={c.slide} key={slide.id}>
             <img
-              className="slide__image"
+              ref={addSlideImageRef}
+              className={c.slideImage}
               src={slide.image}
-              alt={`Slide ${index}`}
+              alt={`Slide ${index + 1}`}
             />
-            <div className="slide__content">{slide.content}</div>
+            <div className={c.slideContent}>{slide.content}</div>
           </div>
         ))}
       </div>
-      <div className="slider__control">
-        <div className="slider__buttons">
+      {/* End Slide Items */}
+      {/* Slide Control */}
+      <div className={c.controls}>
+        <div className={c.buttons}>
           <div
-            ref={prevBtn}
-            className="prev"
+            ref={prevButtonRef}
+            className={c.prev}
             onClick={() => handleControlClick("prev")}
           >
             <i className="fa-solid fa-chevron-left"></i>
           </div>
           <div
-            ref={nextBtn}
-            className="next"
+            ref={nextButtonRef}
+            className={c.next}
             onClick={() => handleControlClick("next")}
           >
             <i className="fa-solid fa-chevron-right"></i>
           </div>
         </div>
       </div>
+      {/* End Slide Controls */}
     </div>
   );
 }

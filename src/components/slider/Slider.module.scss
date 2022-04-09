@@ -1,0 +1,51 @@
+.slider {
+  overflow: hidden;
+  position: relative;
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    .slide {
+      position: relative;
+      cursor: pointer;
+      .slideContent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        opacity: 0;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-size: 24px;
+        padding: 24px;
+      }
+      &:hover {
+        .slideContent {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .controls {
+    .buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      font-size: 48px;
+      cursor: pointer;
+      pointer-events: none;
+      color: #000000;
+      .prev,
+      .next {
+        padding: 0 24px;
+        pointer-events: auto;
+      }
+    }
+  }
+}

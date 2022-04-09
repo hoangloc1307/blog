@@ -1,0 +1,26 @@
+.author {
+  .authorImage {
+    width: 100%;
+    height: auto;
+  }
+  .authorContent {
+    background-color: #eaf2f5;
+    padding: 24px;
+    color: #2f2e2e;
+    .authorTitle {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .authorDescription {
+      margin: 12px 0;
+      line-height: 1.5;
+    }
+    .authorEmail {
+      font-weight: 400;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

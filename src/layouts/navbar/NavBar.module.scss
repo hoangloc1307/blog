@@ -1,21 +1,21 @@
 .navbar {
   background-color: #ffe5ce;
   padding: 24px 0;
-  &-contain {
+  .navbarContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .nav {
       display: flex;
-      &__item {
+      .navItem {
         padding: 0 6px;
       }
-      &__link {
+      .navLink {
         font-weight: 400;
         padding: 12px 6px;
         color: #2f2e2e;
         transition: color 0.2s ease-in-out;
-        &--active,
+        &.active,
         &:hover {
           color: #faaa62;
         }
@@ -23,10 +23,10 @@
     }
     .social {
       display: flex;
-      &__item {
+      .socialItem {
         padding: 0 3px;
       }
-      &__link {
+      .socialLink {
         color: #040403;
         padding: 8px 12px;
       }

@@ -6,19 +6,21 @@ import Footer from "./layouts/footer/Footer";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Post from "./pages/post/Post";
-import GoToTop from "./components/go_to_top/GoToTop";
+import ScrollTop from "./components/scroll_top/ScrollTop";
 
 function App() {
   return (
     <>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/post" element={<Post />} />
-      </Routes>
+      <div className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/post" element={<Post />} />
+        </Routes>
+      </div>
       <Footer />
-      <GoToTop />
+      <ScrollTop />
     </>
   );
 }

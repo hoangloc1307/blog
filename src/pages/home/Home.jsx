@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import "./home.scss";
+import c from "./Home.module.scss";
 import { postList } from "../../assets/fake_data/post";
 import { slideList } from "../../assets/fake_data/slide";
 import Hero from "../../components/hero/Hero";
-import CategoryBox from "../../components/category_card/CategoryBox";
+import CategoryCard from "../../components/category_card/CategoryCard";
 import Posts from "../../components/posts/Posts";
 import SideBar from "../../components/sidebar/SideBar";
 import Slider from "../../components/slider/Slider";
+import clsx from "clsx";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -18,32 +19,34 @@ function Home() {
     document.title = "Blog";
 
     //Get posts
-    const fetchPost = () => {
+    const fetchPosts = () => {
       const result = postList;
       setPosts(result);
     };
-    fetchPost();
+    fetchPosts();
 
     //Get slides
-    const fetchSlide = () => {
+    const fetchSlides = () => {
       const result = slideList;
       setSlides(result);
     };
-    fetchSlide();
+    fetchSlides();
   }, []);
 
   return (
-    <div className="page">
+    <>
       <Hero />
-      <div className="container">
-        <CategoryBox />
-        <div className="home">
+      <CategoryCard />
+      <div className={clsx(c.home, "container")}>
+        <div className={c.posts}>
           <Posts posts={posts} />
+        </div>
+        <div className={c.author}>
           <SideBar />
         </div>
       </div>
       <Slider slides={slides} show={4} />
-    </div>
+    </>
   );
 }
 

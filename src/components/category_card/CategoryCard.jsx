@@ -1,23 +1,31 @@
-import React from "react";
+import clsx from "clsx";
+import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
 
-function CategoryCard({ category }) {
-  const backgroundImage = {
-    backgroundImage: `url(${category.image})`,
-  };
+import { categoryList } from "../../assets/fake_data/category";
+import c from "./CategoryCard.module.scss";
+
+function CategoryCard() {
+  const [categories, setCategories] = useState(categoryList);
   return (
-    <div className="category-card">
-      <Link to={"/"} className="card">
-        <div className="card__container" style={backgroundImage}>
-          <div className="card__content">
-            <h2 className="card__title">{category.title}</h2>
-            <p className="card__description">{category.description}</p>
-            <span className="card__line"></span>
+    <div className={clsx(c.categoryCard, "container")}>
+      {categories.map((category) => (
+        //Category Card Item
+        <Link to={"/"} key={category.id} className={c.card}>
+          <div
+            className={c.cardContainer}
+            style={{ backgroundImage: `url(${category.image})` }}
+          >
+            <div className={c.cardContent}>
+              <h2 className={c.cardTitle}>{category.title}</h2>
+              <p className={c.cardDescription}>{category.description}</p>
+              <span className={c.cardLine}></span>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      ))}
     </div>
   );
 }
 
-export default CategoryCard;
+export default memo(CategoryCard);

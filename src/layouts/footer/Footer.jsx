@@ -1,20 +1,20 @@
 import React from "react";
 
-import "./footer.scss";
+import c from "./Footer.module.scss";
 
 function Footer() {
   return (
-    <div className="footer">
-      <h4 className="footer__tiltle">Join my mailing list</h4>
-      <div className="footer__form">
+    <div className={c.footer}>
+      <h4 className={c.footerTiltle}>Join my mailing list</h4>
+      <div className={c.footerForm}>
         <input
           type="text"
-          className="footer__input"
+          className={c.footerInput}
           placeholder="Enter your email here..."
         />
-        <button className="footer__button">Subscribe</button>
+        <button className={c.footerButton}>Subscribe</button>
       </div>
-      <p className="footer__copyright">
+      <p className={c.footerCopyright}>
         © {new Date().getUTCFullYear()} by Lovely Little Things.
       </p>
     </div>
