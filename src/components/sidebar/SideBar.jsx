@@ -5,7 +5,7 @@ import c from "./SideBar.module.scss";
 
 function SideBar() {
   return (
-    <div className={c.author}>
+    <>
       <Link to={"/about"}>
         <img
           src="https://static.wixstatic.com/media/f61af8_7c1e4605eefa400e90e8475c04651311~mv2_d_2120_1414_s_2.jpg/v1/fill/w_261,h_231,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/f61af8_7c1e4605eefa400e90e8475c04651311~mv2_d_2120_1414_s_2.jpg"
@@ -25,7 +25,7 @@ function SideBar() {
           Email: abc@gmail.com
         </a>
       </div>
-    </div>
+    </>
   );
 }
 

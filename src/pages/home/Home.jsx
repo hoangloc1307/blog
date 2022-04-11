@@ -20,7 +20,7 @@ function Home() {
 
     //Get posts
     const fetchPosts = () => {
-      const result = postList;
+      const result = postList.slice(0, 3);
       setPosts(result);
     };
     fetchPosts();

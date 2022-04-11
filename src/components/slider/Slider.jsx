@@ -33,7 +33,7 @@ function Slider({ slides, show }) {
     } else {
       nextButtonRef.current.style.visibility = "visible";
     }
-  }, [firstSlide]);
+  }, [firstSlide, slides]);
 
   const handleControlClick = (direction) => {
     const slideWidth = slideImageRefs.current[0].clientWidth;

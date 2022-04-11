@@ -1,42 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./post.scss";
+import c from "./Post.module.scss";
 import avatar from "../../assets/images/avatar.jpg";
 
 function Post({ post }) {
   return (
-    <div className="post">
-      <Link to={"/"} className="post__image-container">
-        <img src={post.image} alt={post.title} className="post__image" />
+    <div className={c.post}>
+      <Link to={"/"} className={c.postLink}>
+        <img src={post.image} alt={post.title} className={c.postImage} />
       </Link>
-      <div className="post__content">
-        <div className="post__user">
-          <div className="user__image">
-            <img src={avatar} alt="Avatar" />
-          </div>
-          <div className="user__info">
-            <p className="user__name">Admin</p>
-            <p className="user__datetime">
-              <span className="user__date">
+      <div className={c.postContent}>
+        <div className={c.postUser}>
+          <img className={c.userImage} src={avatar} alt="Avatar" />
+          <div className={c.userInfo}>
+            <p className={c.userName}>Admin</p>
+            <p className={c.userDatetime}>
+              <span className={c.userDate}>
                 {post.createdAt.toDateString()}
               </span>
-              <span className="user__time">2 min</span>
+              <span className={c.userTime}>2 min</span>
             </p>
           </div>
         </div>
-        <Link to={"/"} className="post__link">
-          <h3 className="post__title">{post.title}</h3>
-          <p className="post__description">{post.description}</p>
+        <Link to={"/"} className={c.postLink}>
+          <h3 className={c.postTitle}>{post.title}</h3>
+          <p className={c.postDescription}>{post.description}</p>
         </Link>
-        <div className="post__interaction">
-          <div className="post__view">
+        <div className={c.postInteraction}>
+          <div className={c.postView}>
             <i className="fa-regular fa-eye"></i> {post.view}
           </div>
-          <div className="post__comment">
+          <div className={c.postComment}>
             <i className="fa-regular fa-message"></i> {post.comment}
           </div>
-          <div className="post__like">
+          <div className={c.postLike}>
             {post.like} <i className="fa-regular fa-heart"></i>
           </div>
         </div>

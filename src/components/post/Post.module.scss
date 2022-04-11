@@ -1,0 +1,66 @@
+.post {
+  margin-bottom: 60px;
+  .postLink {
+    display: block;
+    color: #2f2e2e;
+    &:hover {
+      color: #faaa62;
+    }
+  }
+  .postImage {
+    width: 100%;
+  }
+  .postContent {
+    margin-top: 24px;
+    padding: 0 24px;
+    .postUser {
+      display: flex;
+      align-items: center;
+      .userImage {
+        display: block;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+      .userInfo {
+        font-size: 14px;
+        margin-left: 12px;
+        .userTime {
+          margin-left: 12px;
+        }
+      }
+    }
+    .postTitle {
+      font-family: "Source Serif Pro", serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .postDescription {
+      margin-top: 12px;
+      font-weight: 400;
+    }
+    .postInteraction {
+      display: flex;
+      padding-top: 12px;
+      margin-top: 24px;
+      border-top: 1px solid #d5d5d5;
+      position: relative;
+      .postComment {
+        margin-left: 24px;
+        &:hover {
+          color: #faaa62;
+          cursor: pointer;
+        }
+      }
+      .postLike {
+        position: absolute;
+        right: 0;
+        &:hover {
+          color: #e84a43;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
