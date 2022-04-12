@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 import { postList } from "../../assets/fake_data/post";
 import Post from "../../components/post/Post";
@@ -15,9 +16,9 @@ function AllPost() {
   }, []);
 
   return (
-    <div className={c.posts}>
+    <div className={clsx(c.posts, "container")}>
       {posts.map((post) => (
-        <Post post={post} key={post.id} />
+        <Post post={post} key={post.id} pc={c} />
       ))}
     </div>
   );

@@ -1,17 +1,18 @@
 import clsx from "clsx";
-import React, { memo, useState } from "react";
+import React, { memo, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { categoryList } from "../../assets/fake_data/category";
 import c from "./CategoryCard.module.scss";
+import { CategoryContext } from "../../App";
 
 function CategoryCard() {
-  const [categories, setCategories] = useState(categoryList);
+  const categories = useContext(CategoryContext);
+
   return (
     <div className={clsx(c.categoryCard, "container")}>
       {categories.map((category) => (
         //Category Card Item
-        <Link to={"/"} key={category.id} className={c.card}>
+        <Link to={`/${category.title}`} key={category.id} className={c.card}>
           <div
             className={c.cardContainer}
             style={{ backgroundImage: `url(${category.image})` }}

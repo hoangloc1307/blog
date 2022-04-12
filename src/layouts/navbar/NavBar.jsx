@@ -1,9 +1,11 @@
 import clsx from "clsx";
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import c from "./NavBar.module.scss";
+import { CategoryContext } from "../../App";
 
 function NavBar() {
+  const categories = useContext(CategoryContext);
   const activeClass = ({ isActive }) =>
     clsx(c.navLink, { [c.active]: isActive });
   return (
@@ -20,21 +22,13 @@ function NavBar() {
               About
             </NavLink>
           </li>
-          <li className={c.navItem}>
-            <NavLink to={"/a"} className={activeClass}>
-              Lifestyle
-            </NavLink>
-          </li>
-          <li className={c.navItem}>
-            <NavLink to={"/b"} className={activeClass}>
-              Family
-            </NavLink>
-          </li>
-          <li className={c.navItem}>
-            <NavLink to={"/c"} className={activeClass}>
-              Food
-            </NavLink>
-          </li>
+          {categories.map((category) => (
+            <li className={c.navItem} key={category.id}>
+              <NavLink to={`/${category.title}`} className={activeClass}>
+                {category.title}
+              </NavLink>
+            </li>
+          ))}
         </ul>
         <ul className={c.social}>
           <li className={c.socialItem}>

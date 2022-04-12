@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 
 import c from "./Post.module.scss";
 import avatar from "../../assets/images/avatar.jpg";
+import clsx from "clsx";
 
-function Post({ post }) {
+function Post({ post, pc }) {
   return (
-    <div className={c.post}>
-      <Link to={"/"} className={c.postLink}>
+    <div className={clsx(c.post, pc.post)}>
+      <Link to={"/"} className={clsx(c.postLink, pc.postLink)}>
         <img src={post.image} alt={post.title} className={c.postImage} />
       </Link>
-      <div className={c.postContent}>
+      <div className={clsx(c.postContent, pc.postContent)}>
         <div className={c.postUser}>
           <img className={c.userImage} src={avatar} alt="Avatar" />
           <div className={c.userInfo}>
@@ -24,7 +25,7 @@ function Post({ post }) {
           </div>
         </div>
         <Link to={"/"} className={c.postLink}>
-          <h3 className={c.postTitle}>{post.title}</h3>
+          <h3 className={clsx(c.postTitle, pc.postTitle)}>{post.title}</h3>
           <p className={c.postDescription}>{post.description}</p>
         </Link>
         <div className={c.postInteraction}>
