@@ -1,13 +1,13 @@
 import React, { memo } from "react";
 import Post from "../post/Post";
 
-function Posts({ posts, pc }) {
+function Posts({ posts }) {
   return (
-    <div className={pc.posts}>
+    <>
       {posts.map((post) => (
         <Post key={post.id} post={post} pc={""} />
       ))}
-    </div>
+    </>
   );
 }
 

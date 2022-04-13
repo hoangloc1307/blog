@@ -38,8 +38,12 @@ function Home() {
       <Hero />
       <CategoryCard />
       <div className={clsx(c.home, "container")}>
-        <Posts posts={posts} pc={c} />
-        <SideBar pc={c} />
+        <div className={c.posts}>
+          <Posts posts={posts} />
+        </div>
+        <div className={c.author}>
+          <SideBar />
+        </div>
       </div>
       <Slider slides={slides} show={4} />
     </>
