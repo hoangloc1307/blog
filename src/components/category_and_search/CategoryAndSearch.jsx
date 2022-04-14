@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React, { memo, useContext } from "react";
-import { Link } from "react-router-dom";
 import { CategoryContext } from "../../App";
 import c from "./CategoryAndSearch.module.scss";
 
