@@ -4,25 +4,30 @@ import { Link } from "react-router-dom";
 import { CategoryContext } from "../../App";
 import c from "./CategoryAndSearch.module.scss";
 
-function CategoryAndSearch({ showSearch, onSearchShow }) {
+function CategoryAndSearch({ showSearch, onSearchShow, onCategoryChange }) {
   const categories = useContext(CategoryContext);
 
   return (
     <div className={c.categoryAndSearch}>
       <ul className={c.category}>
         <li className={c.categoryItem}>
-          <Link to={"/post"} className={c.categoryLink}>
+          <a
+            href="/"
+            onClick={(e) => onCategoryChange("all", e)}
+            className={c.categoryLink}
+          >
             All post
-          </Link>
+          </a>
         </li>
         {categories.map((category) => (
           <li key={category.id} className={c.categoryItem}>
-            <Link
-              to={`/post/${category.title.toLowerCase()}`}
+            <a
+              href="/"
+              onClick={(e) => onCategoryChange(category.title.toLowerCase(), e)}
               className={c.categoryLink}
             >
               {category.title}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

@@ -8,17 +8,27 @@ import c from "./AllPost.module.scss";
 function AllPost() {
   const [posts, setPosts] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
+  const [category, setCategory] = useState("all");
 
   useEffect(() => {
-    const fetchPosts = () => {
+    const fetchPosts = async () => {
       const result = postList;
-      setPosts(result);
+      if (category === "all") {
+        setPosts(result);
+      } else {
+        setPosts(result.filter((post) => post.category === category));
+      }
     };
     fetchPosts();
-  }, []);
+  }, [category]);
 
-  const handleSearchShow = (value) => {
-    setShowSearch(value === "open");
+  const handleSearchShow = (action) => {
+    setShowSearch(action === "open");
+  };
+
+  const handleCategoryChange = (categoryValue, e) => {
+    e.preventDefault();
+    setCategory(categoryValue);
   };
 
   return (
@@ -26,6 +36,7 @@ function AllPost() {
       <CategoryAndSearch
         showSearch={showSearch}
         onSearchShow={handleSearchShow}
+        onCategoryChange={handleCategoryChange}
       />
       <div className={c.posts}>
         {posts.map((post) => (

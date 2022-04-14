@@ -10,6 +10,7 @@ export const postList = [
     comment: 4,
     like: 7,
     createdAt: new Date(1648955739776),
+    category: "lifestyle",
     userId: 1,
   },
   {
@@ -23,6 +24,7 @@ export const postList = [
     comment: 2,
     like: 1,
     createdAt: new Date(1641555739776),
+    category: "food",
     userId: 1,
   },
   {
@@ -36,6 +38,7 @@ export const postList = [
     comment: 16,
     like: 21,
     createdAt: new Date(1648856739776),
+    category: "food",
     userId: 1,
   },
   {
@@ -49,6 +52,7 @@ export const postList = [
     comment: 6,
     like: 2,
     createdAt: new Date(1648885739776),
+    category: "food",
     userId: 1,
   },
   {
@@ -62,6 +66,7 @@ export const postList = [
     comment: 16,
     like: 31,
     createdAt: new Date(1458856739776),
+    category: "family",
     userId: 1,
   },
   {
@@ -75,6 +80,7 @@ export const postList = [
     comment: 26,
     like: 12,
     createdAt: new Date(1648556739776),
+    category: "family",
     userId: 1,
   },
 ];
