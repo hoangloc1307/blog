@@ -9,6 +9,7 @@ function AllPost() {
   const [posts, setPosts] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
   const [category, setCategory] = useState("all");
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -23,7 +24,13 @@ function AllPost() {
   }, [category]);
 
   const handleSearchShow = (action) => {
-    setShowSearch(action === "open");
+    if (action === "open") {
+      setShowSearch(true);
+    }
+    if (action === "close") {
+      setShowSearch(false);
+      setKeyword("");
+    }
   };
 
   const handleCategoryChange = (categoryValue, e) => {
@@ -31,12 +38,33 @@ function AllPost() {
     setCategory(categoryValue);
   };
 
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      const value = e.target.value.toLowerCase();
+      const searchPosts = async () => {
+        const result = postList;
+        if (value) {
+          setPosts(
+            result.filter(
+              (post) => post.title.toLowerCase().indexOf(value) !== -1
+            )
+          );
+        } else {
+          setPosts(result);
+        }
+      };
+      searchPosts();
+    }
+  };
+
   return (
     <div className={clsx(c.allPost, "container")}>
       <CategoryAndSearch
         showSearch={showSearch}
+        keyword={keyword}
         onSearchShow={handleSearchShow}
         onCategoryChange={handleCategoryChange}
+        onSearch={handleSearch}
       />
       <div className={c.posts}>
         {posts.map((post) => (

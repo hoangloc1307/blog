@@ -3,7 +3,13 @@ import React, { memo, useContext } from "react";
 import { CategoryContext } from "../../App";
 import c from "./CategoryAndSearch.module.scss";
 
-function CategoryAndSearch({ showSearch, onSearchShow, onCategoryChange }) {
+function CategoryAndSearch({
+  showSearch,
+  keyword,
+  onSearchShow,
+  onCategoryChange,
+  onSearch,
+}) {
   const categories = useContext(CategoryContext);
 
   return (
@@ -41,8 +47,10 @@ function CategoryAndSearch({ showSearch, onSearchShow, onCategoryChange }) {
         ></i>
         <input
           type="text"
+          value={keyword}
           className={clsx(c.searchInput)}
           placeholder="Seach"
+          onKeyPress={(e) => onSearch(e)}
         />
         <i
           className={clsx(c.searchClose, "fa-solid fa-xmark")}
