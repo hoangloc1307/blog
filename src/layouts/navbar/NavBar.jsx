@@ -22,6 +22,11 @@ function NavBar() {
               About
             </NavLink>
           </li>
+          <li className={c.navItem}>
+            <NavLink to="/post" className={activeClass}>
+              Post
+            </NavLink>
+          </li>
           {categories.map((category) => (
             <li className={c.navItem} key={category.id}>
               <NavLink to={`/${category.title}`} className={activeClass}>

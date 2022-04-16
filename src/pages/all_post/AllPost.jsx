@@ -20,7 +20,11 @@ function AllPost() {
         setPosts(result.filter((post) => post.category === category));
       }
     };
-    fetchPosts();
+    setKeyword("");
+    setShowSearch(false);
+    if (keyword === "") {
+      fetchPosts();
+    }
   }, [category]);
 
   const handleSearchShow = (action) => {
@@ -54,7 +58,12 @@ function AllPost() {
         }
       };
       searchPosts();
+      setCategory("");
     }
+  };
+
+  const handleKeywordChange = (value) => {
+    setKeyword(value);
   };
 
   return (
@@ -62,9 +71,11 @@ function AllPost() {
       <CategoryAndSearch
         showSearch={showSearch}
         keyword={keyword}
+        currentCategory={category}
         onSearchShow={handleSearchShow}
         onCategoryChange={handleCategoryChange}
         onSearch={handleSearch}
+        onKeywordChange={handleKeywordChange}
       />
       <div className={c.posts}>
         {posts.map((post) => (

@@ -13,6 +13,10 @@
       &:hover {
         color: #faaa62;
       }
+      &.active {
+        font-weight: 400;
+        text-decoration: underline;
+      }
     }
   }
   .search {
@@ -42,6 +46,7 @@
     .searchClose {
       cursor: pointer;
       color: #6b6a6a;
+      padding: 6px 12px;
     }
   }
 }

@@ -6,9 +6,11 @@ import c from "./CategoryAndSearch.module.scss";
 function CategoryAndSearch({
   showSearch,
   keyword,
+  currentCategory,
   onSearchShow,
   onCategoryChange,
   onSearch,
+  onKeywordChange,
 }) {
   const categories = useContext(CategoryContext);
 
@@ -19,7 +21,9 @@ function CategoryAndSearch({
           <a
             href="/"
             onClick={(e) => onCategoryChange("all", e)}
-            className={c.categoryLink}
+            className={clsx(c.categoryLink, {
+              [c.active]: currentCategory === "all",
+            })}
           >
             All post
           </a>
@@ -29,7 +33,9 @@ function CategoryAndSearch({
             <a
               href="/"
               onClick={(e) => onCategoryChange(category.title.toLowerCase(), e)}
-              className={c.categoryLink}
+              className={clsx(c.categoryLink, {
+                [c.active]: currentCategory === category.title.toLowerCase(),
+              })}
             >
               {category.title}
             </a>
@@ -51,6 +57,7 @@ function CategoryAndSearch({
           className={clsx(c.searchInput)}
           placeholder="Seach"
           onKeyPress={(e) => onSearch(e)}
+          onChange={(e) => onKeywordChange(e.target.value)}
         />
         <i
           className={clsx(c.searchClose, "fa-solid fa-xmark")}
