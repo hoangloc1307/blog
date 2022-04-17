@@ -25,6 +25,7 @@ function AllPost() {
     if (keyword === "") {
       fetchPosts();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
   const handleSearchShow = (action) => {

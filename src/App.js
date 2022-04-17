@@ -1,13 +1,15 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, Suspense, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import NavBar from "./layouts/navbar/NavBar";
 import Footer from "./layouts/footer/Footer";
-import Home from "./pages/home/Home";
-import About from "./pages/about/About";
-import AllPost from "./pages/all_post/AllPost";
 import ScrollTop from "./components/scroll_top/ScrollTop";
+
 import { categoryList } from "./assets/fake_data/category";
+
+const Home = React.lazy(() => import("./pages/home/Home"));
+const About = React.lazy(() => import("./pages/about/About"));
+const AllPost = React.lazy(() => import("./pages/all_post/AllPost"));
 
 export const CategoryContext = createContext();
 
@@ -25,11 +27,13 @@ function App() {
     <CategoryContext.Provider value={categories}>
       <NavBar />
       <div className="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/post" element={<AllPost />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/post" element={<AllPost />} />
+          </Routes>
+        </Suspense>
       </div>
       <Footer />
       <ScrollTop />
