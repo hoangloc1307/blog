@@ -1,0 +1,14 @@
+.postContainer {
+  border: 1px solid #f0ecec;
+  padding: 36px 60px;
+  .postTitle {
+    font-family: "Source Serif Pro", serif;
+    margin-bottom: 36px;
+    font-weight: 600;
+    font-size: 35px;
+    text-transform: capitalize;
+  }
+  .postContent {
+    line-height: 1.5;
+  }
+}

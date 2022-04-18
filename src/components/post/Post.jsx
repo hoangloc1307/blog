@@ -8,7 +8,10 @@ import clsx from "clsx";
 function Post({ post, pc }) {
   return (
     <div className={clsx(c.post, pc.post)}>
-      <Link to={"/"} className={clsx(c.postLink, pc.postLink)}>
+      <Link
+        to={`/post/${post.title.toLowerCase().replaceAll(" ", "-")}`}
+        className={clsx(c.postLink, pc.postLink)}
+      >
         <img src={post.image} alt={post.title} className={c.postImage} />
       </Link>
       <div className={clsx(c.postContent, pc.postContent)}>
@@ -24,7 +27,10 @@ function Post({ post, pc }) {
             </p>
           </div>
         </div>
-        <Link to={"/"} className={c.postLink}>
+        <Link
+          to={`/post/${post.title.toLowerCase().replaceAll(" ", "-")}`}
+          className={c.postLink}
+        >
           <h3 className={clsx(c.postTitle, pc.postTitle)}>{post.title}</h3>
           <p className={c.postDescription}>{post.description}</p>
         </Link>
