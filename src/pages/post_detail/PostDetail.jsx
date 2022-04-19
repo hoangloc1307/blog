@@ -3,22 +3,31 @@ import c from "./PostDetail.module.scss";
 import CategoryAndSearch from "../../components/category_and_search/CategoryAndSearch";
 import { Link, useLocation } from "react-router-dom";
 import { postList } from "../../assets/fake_data/post";
+import Post from "../../components/post/Post";
 
 function PostDetail() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
   const [post, setPost] = useState({});
+  const [recentPosts, setRecentPosts] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
-      const result = postList.filter(
+      const result = postList;
+      //Get post detail
+      const postDetail = result.filter(
         (p) => path === p.title.toLowerCase().replaceAll(" ", "-")
       );
-      setPost(...result);
+      setPost(...postDetail);
+
+      //Get recent posts
+      const postsRecent = result.slice(0, 3);
+      setRecentPosts(postsRecent);
     };
     fetchPost();
-  }, []);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [path]);
 
   return (
     <div className="container">
@@ -30,33 +39,50 @@ function PostDetail() {
           <ul className={c.social}>
             <li className={c.socialItem}>
               <a href="/" className={c.socialLink}>
-                <i class="fa-brands fa-facebook-f"></i>
+                <i className="fa-brands fa-facebook-f"></i>
               </a>
             </li>
             <li className={c.socialItem}>
               <a href="/" className={c.socialLink}>
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
               </a>
             </li>
             <li className={c.socialItem}>
               <a href="/" className={c.socialLink}>
-                <i class="fa-brands fa-linkedin-in"></i>
+                <i className="fa-brands fa-linkedin-in"></i>
               </a>
             </li>
             <li className={c.socialItem}>
               <a href="/" className={c.socialLink}>
-                <i class="fa-solid fa-link"></i>
+                <i className="fa-solid fa-link"></i>
               </a>
             </li>
           </ul>
-
           <ul className={c.category}>
             <li className={c.categoryItem}>
               <Link to={"/"} className={c.categoryLink}>
                 {post.category}
               </Link>
             </li>
+            <li className={c.categoryItem}>
+              <Link to={"/"} className={c.categoryLink}>
+                To Styling
+              </Link>
+            </li>
           </ul>
+        </div>
+      </div>
+      <div className={c.postRecent}>
+        <div className={c.postRecentHeader}>
+          <h3 className={c.postRecentTitle}>Recent Posts</h3>
+          <Link className={c.postRecentLink} to={"/post"}>
+            See All
+          </Link>
+        </div>
+        <div className={c.postRecentContainer}>
+          {recentPosts.map((item) => (
+            <Post post={item} pc={c} key={item.id} />
+          ))}
         </div>
       </div>
     </div>

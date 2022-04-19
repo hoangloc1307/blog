@@ -6,16 +6,21 @@ import avatar from "../../assets/images/avatar.jpg";
 import clsx from "clsx";
 
 function Post({ post, pc }) {
+  console.log(pc);
   return (
     <div className={clsx(c.post, pc.post)}>
       <Link
         to={`/post/${post.title.toLowerCase().replaceAll(" ", "-")}`}
         className={clsx(c.postLink, pc.postLink)}
       >
-        <img src={post.image} alt={post.title} className={c.postImage} />
+        <img
+          src={post.image}
+          alt={post.title}
+          className={clsx(c.postImage, pc.postImage)}
+        />
       </Link>
       <div className={clsx(c.postContent, pc.postContent)}>
-        <div className={c.postUser}>
+        <div className={clsx(c.postUser, pc.postUser)}>
           <img className={c.userImage} src={avatar} alt="Avatar" />
           <div className={c.userInfo}>
             <p className={c.userName}>Admin</p>
@@ -29,10 +34,12 @@ function Post({ post, pc }) {
         </div>
         <Link
           to={`/post/${post.title.toLowerCase().replaceAll(" ", "-")}`}
-          className={c.postLink}
+          className={clsx(c.postLink, pc.postLink)}
         >
           <h3 className={clsx(c.postTitle, pc.postTitle)}>{post.title}</h3>
-          <p className={c.postDescription}>{post.description}</p>
+          <p className={clsx(c.postDescription, pc.postDescription)}>
+            {post.description}
+          </p>
         </Link>
         <div className={c.postInteraction}>
           <div className={c.postView}>
