@@ -1,0 +1,31 @@
+.comment {
+  border: 1px solid #f0ecec;
+  margin-top: 36px;
+  padding: 24px 96px;
+  .commentTitle {
+    font-family: "Source Serif Pro", serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2f2e2e;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .commentContainer {
+    margin-top: 24px;
+    border: 1px solid #d5d5d5;
+    padding: 12px;
+    position: relative;
+    .commentInputArea {
+      outline: none;
+    }
+    .commentPlaceholder {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      pointer-events: none;
+    }
+    .commentControl {
+      display: none;
+    }
+  }
+}

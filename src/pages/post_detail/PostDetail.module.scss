@@ -43,11 +43,14 @@
   }
 }
 .postRecent {
-  margin-top: 24px;
+  margin-top: 36px;
   .postRecentHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .postRecentTitle {
+      font-size: 18px;
+    }
     .postRecentLink {
       font-weight: 400;
       font-size: 14px;
@@ -62,6 +65,7 @@
     justify-content: space-between;
     .post {
       width: 30%;
+      margin: 0;
       .postImage {
         aspect-ratio: 1.75 / 1;
       }

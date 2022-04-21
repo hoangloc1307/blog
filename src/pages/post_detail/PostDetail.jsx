@@ -4,6 +4,7 @@ import CategoryAndSearch from "../../components/category_and_search/CategoryAndS
 import { Link, useLocation } from "react-router-dom";
 import { postList } from "../../assets/fake_data/post";
 import Post from "../../components/post/Post";
+import Comment from "../../components/comment/Comment";
 
 function PostDetail() {
   const location = useLocation();
@@ -32,6 +33,8 @@ function PostDetail() {
   return (
     <div className="container">
       <CategoryAndSearch></CategoryAndSearch>
+
+      {/* Post Content */}
       <div className={c.postContainer}>
         <h2 className={c.postTitle}>{post.title}</h2>
         <div className={c.postContent}>{post.content}</div>
@@ -64,17 +67,15 @@ function PostDetail() {
                 {post.category}
               </Link>
             </li>
-            <li className={c.categoryItem}>
-              <Link to={"/"} className={c.categoryLink}>
-                To Styling
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
+      {/* End Post Content */}
+
+      {/* Recent Post */}
       <div className={c.postRecent}>
         <div className={c.postRecentHeader}>
-          <h3 className={c.postRecentTitle}>Recent Posts</h3>
+          <h2 className={c.postRecentTitle}>Recent Posts</h2>
           <Link className={c.postRecentLink} to={"/post"}>
             See All
           </Link>
@@ -85,6 +86,9 @@ function PostDetail() {
           ))}
         </div>
       </div>
+      {/* End Recent Post */}
+
+      <Comment />
     </div>
   );
 }

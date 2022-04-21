@@ -1,15 +1,11 @@
 .post {
   margin-bottom: 60px;
-  .postLink {
+  .postLinkImage {
     display: block;
-    color: #2f2e2e;
-    &:hover {
-      color: #faaa62;
+    .postImage {
+      width: 100%;
+      aspect-ratio: 4 / 3;
     }
-  }
-  .postImage {
-    width: 100%;
-    aspect-ratio: 4 / 3;
   }
   .postContent {
     margin-top: 24px;
@@ -31,15 +27,22 @@
         }
       }
     }
-    .postTitle {
-      font-family: "Source Serif Pro", serif;
-      font-size: 24px;
-      font-weight: 600;
-      margin-top: 12px;
-    }
-    .postDescription {
-      margin-top: 12px;
-      font-weight: 400;
+    .postLink {
+      display: block;
+      color: #2f2e2e;
+      &:hover {
+        color: #faaa62;
+      }
+      .postTitle {
+        font-family: "Source Serif Pro", serif;
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 12px;
+      }
+      .postDescription {
+        margin-top: 12px;
+        font-weight: 400;
+      }
     }
     .postInteraction {
       display: flex;

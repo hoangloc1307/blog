@@ -6,12 +6,11 @@ import avatar from "../../assets/images/avatar.jpg";
 import clsx from "clsx";
 
 function Post({ post, pc }) {
-  console.log(pc);
   return (
     <div className={clsx(c.post, pc.post)}>
       <Link
         to={`/post/${post.title.toLowerCase().replaceAll(" ", "-")}`}
-        className={clsx(c.postLink, pc.postLink)}
+        className={clsx(c.postLinkImage, pc.postLinkImage)}
       >
         <img
           src={post.image}
