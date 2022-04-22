@@ -1,15 +1,15 @@
-import clsx from "clsx";
-import React, { memo, useContext } from "react";
-import { Link } from "react-router-dom";
+import clsx from 'clsx';
+import React, { memo, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-import c from "./CategoryCard.module.scss";
-import { CategoryContext } from "../../App";
+import c from './CategoryCard.module.scss';
+import { CategoryContext } from '../../App';
 
 function CategoryCard() {
   const categories = useContext(CategoryContext);
 
   return (
-    <div className={clsx(c.categoryCard, "container")}>
+    <div className={clsx(c.categoryCard, 'container')}>
       {categories.map((category) => (
         //Category Card Item
         <Link to={`/${category.title}`} key={category.id} className={c.card}>

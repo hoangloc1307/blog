@@ -15,6 +15,15 @@
     border: 1px solid #d5d5d5;
     padding: 12px;
     position: relative;
+    &.active {
+      border-color: #444242;
+      .commentControl {
+        display: block;
+      }
+    }
+    &:hover {
+      border-color: #444242;
+    }
     .commentInputArea {
       outline: none;
     }
@@ -25,7 +34,30 @@
       pointer-events: none;
     }
     .commentControl {
+      text-align: right;
+      margin-top: 12px;
       display: none;
+      .btnCancel {
+        margin-right: 24px;
+        border: none;
+        background: none;
+        color: #faaa62;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .btnPublish {
+        font-size: 14px;
+        border: none;
+        background: #e0e0e0;
+        color: white;
+        padding: 6px 12px;
+        pointer-events: none;
+        &.active {
+          pointer-events: auto;
+          cursor: pointer;
+          background: #faaa62;
+        }
+      }
     }
   }
 }

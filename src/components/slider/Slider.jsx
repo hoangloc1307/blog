@@ -1,6 +1,6 @@
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from 'react';
 
-import c from "./Slider.module.scss";
+import c from './Slider.module.scss';
 
 function Slider({ slides, show }) {
   //State
@@ -24,28 +24,28 @@ function Slider({ slides, show }) {
 
   useEffect(() => {
     if (firstSlide === 1) {
-      prevButtonRef.current.style.visibility = "hidden";
+      prevButtonRef.current.style.visibility = 'hidden';
     } else {
-      prevButtonRef.current.style.visibility = "visible";
+      prevButtonRef.current.style.visibility = 'visible';
     }
     if (firstSlide > slides.length - show) {
-      nextButtonRef.current.style.visibility = "hidden";
+      nextButtonRef.current.style.visibility = 'hidden';
     } else {
-      nextButtonRef.current.style.visibility = "visible";
+      nextButtonRef.current.style.visibility = 'visible';
     }
   }, [firstSlide, slides]);
 
   const handleControlClick = (direction) => {
     const slideWidth = slideImageRefs.current[0].clientWidth;
     //Click next button
-    if (direction === "next" && firstSlide <= slides.length - show) {
+    if (direction === 'next' && firstSlide <= slides.length - show) {
       slidesRef.current.style.transform = `translate(-${
         slideWidth * firstSlide
       }px)`;
       setfirstSlide(firstSlide + 1);
     }
     //Click prev button
-    if (direction === "prev" && firstSlide > 1) {
+    if (direction === 'prev' && firstSlide > 1) {
       slidesRef.current.style.transform = `translate(-${
         slideWidth * (firstSlide - 2)
       }px)`;
@@ -82,16 +82,16 @@ function Slider({ slides, show }) {
           <div
             ref={prevButtonRef}
             className={c.prev}
-            onClick={() => handleControlClick("prev")}
+            onClick={() => handleControlClick('prev')}
           >
-            <i className="fa-solid fa-chevron-left"></i>
+            <i className='fa-solid fa-chevron-left'></i>
           </div>
           <div
             ref={nextButtonRef}
             className={c.next}
-            onClick={() => handleControlClick("next")}
+            onClick={() => handleControlClick('next')}
           >
-            <i className="fa-solid fa-chevron-right"></i>
+            <i className='fa-solid fa-chevron-right'></i>
           </div>
         </div>
       </div>

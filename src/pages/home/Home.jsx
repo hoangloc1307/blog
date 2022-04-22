@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import c from "./Home.module.scss";
-import { postList } from "../../assets/fake_data/post";
-import { slideList } from "../../assets/fake_data/slide";
-import Hero from "../../components/hero/Hero";
-import CategoryCard from "../../components/category_card/CategoryCard";
-import Posts from "../../components/posts/Posts";
-import SideBar from "../../components/sidebar/SideBar";
-import Slider from "../../components/slider/Slider";
-import clsx from "clsx";
+import c from './Home.module.scss';
+import { postList } from '../../assets/fake_data/post';
+import { slideList } from '../../assets/fake_data/slide';
+import Hero from '../../components/hero/Hero';
+import CategoryCard from '../../components/category_card/CategoryCard';
+import Posts from '../../components/posts/Posts';
+import SideBar from '../../components/sidebar/SideBar';
+import Slider from '../../components/slider/Slider';
+import clsx from 'clsx';
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -16,7 +16,7 @@ function Home() {
 
   useEffect(() => {
     //Set title
-    document.title = "Blog";
+    document.title = 'Blog';
 
     //Get posts
     const fetchPosts = () => {
@@ -37,7 +37,7 @@ function Home() {
     <>
       <Hero />
       <CategoryCard />
-      <div className={clsx(c.home, "container")}>
+      <div className={clsx(c.home, 'container')}>
         <div className={c.posts}>
           <Posts posts={posts} />
         </div>

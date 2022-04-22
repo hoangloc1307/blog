@@ -1,8 +1,8 @@
-import clsx from "clsx";
-import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
-import c from "./NavBar.module.scss";
-import { CategoryContext } from "../../App";
+import clsx from 'clsx';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import c from './NavBar.module.scss';
+import { CategoryContext } from '../../App';
 
 function NavBar() {
   const categories = useContext(CategoryContext);
@@ -10,20 +10,20 @@ function NavBar() {
     clsx(c.navLink, { [c.active]: isActive });
   return (
     <div className={c.navbar}>
-      <div className={clsx(c.navbarContainer, "container")}>
+      <div className={clsx(c.navbarContainer, 'container')}>
         <ul className={c.nav}>
           <li className={c.navItem}>
-            <NavLink to="/" className={activeClass}>
+            <NavLink to='/' className={activeClass}>
               Home
             </NavLink>
           </li>
           <li className={c.navItem}>
-            <NavLink to="/about" className={activeClass}>
+            <NavLink to='/about' className={activeClass}>
               About
             </NavLink>
           </li>
           <li className={c.navItem}>
-            <NavLink to="/post" className={activeClass}>
+            <NavLink to='/post' className={activeClass}>
               Post
             </NavLink>
           </li>
@@ -37,18 +37,18 @@ function NavBar() {
         </ul>
         <ul className={c.social}>
           <li className={c.socialItem}>
-            <a href="#" className={c.socialLink}>
-              <i className="fa-brands fa-facebook-f"></i>
+            <a href='#' className={c.socialLink}>
+              <i className='fa-brands fa-facebook-f'></i>
             </a>
           </li>
           <li className={c.socialItem}>
-            <a href="#" className={c.socialLink}>
-              <i className="fa-brands fa-instagram"></i>
+            <a href='#' className={c.socialLink}>
+              <i className='fa-brands fa-instagram'></i>
             </a>
           </li>
           <li className={c.socialItem}>
-            <a href="#" className={c.socialLink}>
-              <i className="fa-brands fa-twitter"></i>
+            <a href='#' className={c.socialLink}>
+              <i className='fa-brands fa-twitter'></i>
             </a>
           </li>
         </ul>

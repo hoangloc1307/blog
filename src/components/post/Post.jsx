@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import c from "./Post.module.scss";
-import avatar from "../../assets/images/avatar.jpg";
-import clsx from "clsx";
+import c from './Post.module.scss';
+import avatar from '../../assets/images/avatar.jpg';
+import clsx from 'clsx';
 
 function Post({ post, pc }) {
   return (
     <div className={clsx(c.post, pc.post)}>
       <Link
-        to={`/post/${post.title.toLowerCase().replaceAll(" ", "-")}`}
+        to={`/post/${post.title.toLowerCase().replaceAll(' ', '-')}`}
         className={clsx(c.postLinkImage, pc.postLinkImage)}
       >
         <img
@@ -20,7 +20,7 @@ function Post({ post, pc }) {
       </Link>
       <div className={clsx(c.postContent, pc.postContent)}>
         <div className={clsx(c.postUser, pc.postUser)}>
-          <img className={c.userImage} src={avatar} alt="Avatar" />
+          <img className={c.userImage} src={avatar} alt='Avatar' />
           <div className={c.userInfo}>
             <p className={c.userName}>Admin</p>
             <p className={c.userDatetime}>
@@ -32,7 +32,7 @@ function Post({ post, pc }) {
           </div>
         </div>
         <Link
-          to={`/post/${post.title.toLowerCase().replaceAll(" ", "-")}`}
+          to={`/post/${post.title.toLowerCase().replaceAll(' ', '-')}`}
           className={clsx(c.postLink, pc.postLink)}
         >
           <h3 className={clsx(c.postTitle, pc.postTitle)}>{post.title}</h3>
@@ -42,13 +42,13 @@ function Post({ post, pc }) {
         </Link>
         <div className={c.postInteraction}>
           <div className={c.postView}>
-            <i className="fa-regular fa-eye"></i> {post.view}
+            <i className='fa-regular fa-eye'></i> {post.view}
           </div>
           <div className={c.postComment}>
-            <i className="fa-regular fa-message"></i> {post.comment}
+            <i className='fa-regular fa-message'></i> {post.comment}
           </div>
           <div className={c.postLike}>
-            {post.like} <i className="fa-regular fa-heart"></i>
+            {post.like} <i className='fa-regular fa-heart'></i>
           </div>
         </div>
       </div>

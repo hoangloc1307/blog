@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import c from "./Footer.module.scss";
+import c from './Footer.module.scss';
 
 function Footer() {
   return (
@@ -8,9 +8,9 @@ function Footer() {
       <h4 className={c.footerTiltle}>Join my mailing list</h4>
       <div className={c.footerForm}>
         <input
-          type="text"
+          type='text'
           className={c.footerInput}
-          placeholder="Enter your email here..."
+          placeholder='Enter your email here...'
         />
         <button className={c.footerButton}>Subscribe</button>
       </div>

@@ -1,20 +1,20 @@
-import clsx from "clsx";
-import React, { useEffect } from "react";
+import clsx from 'clsx';
+import React, { useEffect } from 'react';
 
-import c from "./About.module.scss";
+import c from './About.module.scss';
 
 function About() {
   useEffect(() => {
-    document.title = "About | Blog";
+    document.title = 'About | Blog';
   }, []);
 
   return (
-    <div className={clsx(c.about, "container")}>
+    <div className={clsx(c.about, 'container')}>
       <h2 className={c.aboutTitle}>About</h2>
       <img
-        src="https://static.wixstatic.com/media/f61af8_7c1e4605eefa400e90e8475c04651311~mv2_d_2120_1414_s_2.jpg/v1/fill/w_981,h_671,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/f61af8_7c1e4605eefa400e90e8475c04651311~mv2_d_2120_1414_s_2.jpg"
+        src='https://static.wixstatic.com/media/f61af8_7c1e4605eefa400e90e8475c04651311~mv2_d_2120_1414_s_2.jpg/v1/fill/w_981,h_671,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/f61af8_7c1e4605eefa400e90e8475c04651311~mv2_d_2120_1414_s_2.jpg'
         className={c.aboutImage}
-        alt="Avatar"
+        alt='Avatar'
       />
       <div className={c.aboutContent}>
         <h3 className={c.aboutWelcome}>Hi! I'm Heather</h3>
@@ -35,12 +35,12 @@ function About() {
         <div className={c.aboutForm}>
           <h3 className={c.formTitle}>Drop me a line</h3>
           <div className={c.inputContainer}>
-            <input type="text" className={c.formInput} placeholder="Name" />
-            <input type="text" className={c.formInput} placeholder="Email" />
+            <input type='text' className={c.formInput} placeholder='Name' />
+            <input type='text' className={c.formInput} placeholder='Email' />
           </div>
           <textarea
             className={c.formTextarea}
-            placeholder="Type your message here..."
+            placeholder='Type your message here...'
           ></textarea>
           <button className={c.formButton}>Submit</button>
         </div>

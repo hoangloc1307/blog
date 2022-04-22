@@ -1,40 +1,40 @@
-import clsx from "clsx";
-import React, { useEffect, useState } from "react";
-import { postList } from "../../assets/fake_data/post";
-import CategoryAndSearch from "../../components/category_and_search/CategoryAndSearch";
-import Post from "../../components/post/Post";
-import c from "./AllPost.module.scss";
+import clsx from 'clsx';
+import React, { useEffect, useState } from 'react';
+import { postList } from '../../assets/fake_data/post';
+import CategoryAndSearch from '../../components/category_and_search/CategoryAndSearch';
+import Post from '../../components/post/Post';
+import c from './AllPost.module.scss';
 
 function AllPost() {
   const [posts, setPosts] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
-  const [category, setCategory] = useState("all");
-  const [keyword, setKeyword] = useState("");
+  const [category, setCategory] = useState('all');
+  const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
     const fetchPosts = async () => {
       const result = postList;
-      if (category === "all") {
+      if (category === 'all') {
         setPosts(result);
       } else {
         setPosts(result.filter((post) => post.category === category));
       }
     };
-    setKeyword("");
+    setKeyword('');
     setShowSearch(false);
-    if (keyword === "") {
+    if (keyword === '') {
       fetchPosts();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
   const handleSearchShow = (action) => {
-    if (action === "open") {
+    if (action === 'open') {
       setShowSearch(true);
     }
-    if (action === "close") {
+    if (action === 'close') {
       setShowSearch(false);
-      setKeyword("");
+      setKeyword('');
     }
   };
 
@@ -44,7 +44,7 @@ function AllPost() {
   };
 
   const handleSearch = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       const value = e.target.value.toLowerCase();
       const searchPosts = async () => {
         const result = postList;
@@ -59,7 +59,7 @@ function AllPost() {
         }
       };
       searchPosts();
-      setCategory("");
+      setCategory('');
     }
   };
 
@@ -68,7 +68,7 @@ function AllPost() {
   };
 
   return (
-    <div className={clsx(c.allPost, "container")}>
+    <div className={clsx(c.allPost, 'container')}>
       <CategoryAndSearch
         showSearch={showSearch}
         keyword={keyword}
