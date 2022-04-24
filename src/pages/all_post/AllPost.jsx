@@ -4,30 +4,30 @@ import { postList } from '../../assets/fake_data/post';
 import CategoryAndSearch from '../../components/category_and_search/CategoryAndSearch';
 import Post from '../../components/post/Post';
 import c from './AllPost.module.scss';
+import useQuery from '../../services/hooks/useQuery';
 
 function AllPost() {
   const [posts, setPosts] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
-  const [category, setCategory] = useState('all');
   const [keyword, setKeyword] = useState('');
+  const queryString = useQuery();
+  const category = queryString.get('category');
 
   useEffect(() => {
     const fetchPosts = async () => {
       const result = postList;
-      if (category === 'all') {
-        setPosts(result);
-      } else {
+      if (category) {
         setPosts(result.filter((post) => post.category === category));
+      } else {
+        setPosts(result);
       }
     };
+    fetchPosts();
     setKeyword('');
     setShowSearch(false);
-    if (keyword === '') {
-      fetchPosts();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
+  //Show and hide search bar
   const handleSearchShow = (action) => {
     if (action === 'open') {
       setShowSearch(true);
@@ -38,31 +38,29 @@ function AllPost() {
     }
   };
 
-  const handleCategoryChange = (categoryValue, e) => {
-    e.preventDefault();
-    setCategory(categoryValue);
-  };
-
+  //Press enter to search
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
-      const value = e.target.value.toLowerCase();
+      window.history.pushState(null, '', `/post?search=${keyword}`);
+
       const searchPosts = async () => {
         const result = postList;
-        if (value) {
+        if (keyword) {
           setPosts(
             result.filter(
-              (post) => post.title.toLowerCase().indexOf(value) !== -1
+              (post) => post.title.toLowerCase().indexOf(keyword) !== -1
             )
           );
         } else {
           setPosts(result);
         }
       };
+
       searchPosts();
-      setCategory('');
     }
   };
 
+  //Two way binding
   const handleKeywordChange = (value) => {
     setKeyword(value);
   };
@@ -72,9 +70,7 @@ function AllPost() {
       <CategoryAndSearch
         showSearch={showSearch}
         keyword={keyword}
-        currentCategory={category}
         onSearchShow={handleSearchShow}
-        onCategoryChange={handleCategoryChange}
         onSearch={handleSearch}
         onKeywordChange={handleKeywordChange}
       />

@@ -1,14 +1,13 @@
 import clsx from 'clsx';
 import React, { memo, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CategoryContext } from '../../App';
 import c from './CategoryAndSearch.module.scss';
 
 function CategoryAndSearch({
   showSearch,
   keyword,
-  currentCategory,
   onSearchShow,
-  onCategoryChange,
   onSearch,
   onKeywordChange,
 }) {
@@ -18,27 +17,18 @@ function CategoryAndSearch({
     <div className={c.categoryAndSearch}>
       <ul className={c.category}>
         <li className={c.categoryItem}>
-          <a
-            href='/'
-            onClick={(e) => onCategoryChange('all', e)}
-            className={clsx(c.categoryLink, {
-              [c.active]: currentCategory === 'all',
-            })}
-          >
+          <Link to={'/post'} className={c.categoryLink}>
             All post
-          </a>
+          </Link>
         </li>
         {categories.map((category) => (
           <li key={category.id} className={c.categoryItem}>
-            <a
-              href='/'
-              onClick={(e) => onCategoryChange(category.title.toLowerCase(), e)}
-              className={clsx(c.categoryLink, {
-                [c.active]: currentCategory === category.title.toLowerCase(),
-              })}
+            <Link
+              to={`/post?category=${category.title.toLowerCase()}`}
+              className={c.categoryLink}
             >
               {category.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
