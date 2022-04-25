@@ -10,13 +10,14 @@ import NotFound from '../not_found/NotFound';
 function PostDetail() {
   const location = useLocation();
   const path = location.pathname.split('/')[2];
-
+  //State
   const [post, setPost] = useState({});
   const [recentPosts, setRecentPosts] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
       const result = postList;
+
       //Get post detail
       const postDetail = result.filter(
         (p) => path === p.title.toLowerCase().replaceAll(' ', '-')
@@ -28,8 +29,15 @@ function PostDetail() {
       setRecentPosts(postsRecent);
     };
     fetchPost();
+
+    //Scroll to top when change post
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [path]);
+
+  useEffect(() => {
+    //Edit title
+    document.title = `${post.title} | Blog`;
+  }, [post]);
 
   return (
     <>
@@ -66,7 +74,10 @@ function PostDetail() {
               </ul>
               <ul className={c.category}>
                 <li className={c.categoryItem}>
-                  <Link to={'/'} className={c.categoryLink}>
+                  <Link
+                    to={`/post?category=${post.category?.toLowerCase()}`}
+                    className={c.categoryLink}
+                  >
                     {post.category}
                   </Link>
                 </li>

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function NotFound() {
+  useEffect(() => {
+    document.title = 'Page Not Found | Blog';
+  }, []);
+
   return <div>NotFound</div>;
 }
 

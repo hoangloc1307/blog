@@ -4,14 +4,16 @@ import { postList } from '../../assets/fake_data/post';
 import CategoryAndSearch from '../../components/category_and_search/CategoryAndSearch';
 import Post from '../../components/post/Post';
 import c from './AllPost.module.scss';
-import useQuery from '../../services/hooks/useQuery';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function AllPost() {
   const [posts, setPosts] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
   const [keyword, setKeyword] = useState('');
-  const queryString = useQuery();
-  const category = queryString.get('category');
+  const [category, setCategory] = useState('');
+
+  const { search } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -25,7 +27,14 @@ function AllPost() {
     fetchPosts();
     setKeyword('');
     setShowSearch(false);
+
+    //Set title
+    document.title = `${category ? category : 'All Post'} | Blog`;
   }, [category]);
+
+  useEffect(() => {
+    setCategory(new URLSearchParams(search).get('category'));
+  }, [search]);
 
   //Show and hide search bar
   const handleSearchShow = (action) => {
@@ -41,8 +50,12 @@ function AllPost() {
   //Press enter to search
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
-      window.history.pushState(null, '', `/post?search=${keyword}`);
+      //Set title
+      document.title = `Search: ${keyword} | Blog`;
+      //Edit url
+      navigate(`/post?search=${keyword}`, {});
 
+      //Search post
       const searchPosts = async () => {
         const result = postList;
         if (keyword) {
@@ -55,7 +68,6 @@ function AllPost() {
           setPosts(result);
         }
       };
-
       searchPosts();
     }
   };
