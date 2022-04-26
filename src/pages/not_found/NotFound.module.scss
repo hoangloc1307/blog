@@ -1,0 +1,30 @@
+.notFound {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .notFoundContent {
+    width: 45%;
+    .notFoundTitle {
+      font-size: 40px;
+      font-weight: 900;
+    }
+    .notFoundDescription {
+      font-size: 18px;
+      margin-top: 12px;
+    }
+    .notFoundButton {
+      margin-top: 24px;
+      font-size: 18px;
+      padding: 12px 24px;
+    }
+  }
+  .notFoundImageBox {
+    width: 50%;
+    overflow: hidden;
+    .notFoundImage {
+      width: 140%;
+      object-fit: cover;
+      transform: translateX(-20%);
+    }
+  }
+}

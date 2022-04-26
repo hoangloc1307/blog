@@ -36,7 +36,9 @@ function PostDetail() {
 
   useEffect(() => {
     //Edit title
-    document.title = `${post.title} | Blog`;
+    if (post) {
+      document.title = `${post.title} | Blog`;
+    }
   }, [post]);
 
   return (
