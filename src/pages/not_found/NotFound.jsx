@@ -9,6 +9,8 @@ function NotFound() {
     document.title = 'Page Not Found | Blog';
   }, []);
 
+  console.log(process.env.REACT_APP_BLOG_NAME);
+
   return (
     <div className={clsx(c.notFound, 'container')}>
       <div className={c.notFoundContent}>
