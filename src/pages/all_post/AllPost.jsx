@@ -27,7 +27,7 @@ function AllPost() {
       //Set title
       document.title = `${
         category ? StringCapitalize(category) : 'All Post'
-      } | Blog`;
+      } | ${process.env.REACT_APP_BLOG_NAME}`;
       //Get posts
       const fetchPosts = async () => {
         const result = postList;

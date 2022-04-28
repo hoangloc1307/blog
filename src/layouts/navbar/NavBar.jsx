@@ -29,7 +29,11 @@ function NavBar() {
           </li>
           {categories.map((category) => (
             <li className={c.navItem} key={category.id}>
-              <NavLink to={`/${category.title}`} className={activeClass}>
+              <NavLink
+                to={`/${category.title.toLowerCase()}`}
+                className={activeClass}
+                state={{ categoryTitle: category.title }}
+              >
                 {category.title}
               </NavLink>
             </li>
@@ -37,17 +41,17 @@ function NavBar() {
         </ul>
         <ul className={c.social}>
           <li className={c.socialItem}>
-            <a href='#' className={c.socialLink}>
+            <a href='facebook.com' className={c.socialLink}>
               <i className='fa-brands fa-facebook-f'></i>
             </a>
           </li>
           <li className={c.socialItem}>
-            <a href='#' className={c.socialLink}>
+            <a href='instagram.com' className={c.socialLink}>
               <i className='fa-brands fa-instagram'></i>
             </a>
           </li>
           <li className={c.socialItem}>
-            <a href='#' className={c.socialLink}>
+            <a href='twitter.com' className={c.socialLink}>
               <i className='fa-brands fa-twitter'></i>
             </a>
           </li>

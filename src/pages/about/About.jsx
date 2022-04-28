@@ -5,7 +5,7 @@ import c from './About.module.scss';
 
 function About() {
   useEffect(() => {
-    document.title = 'About | Blog';
+    document.title = `About | ${process.env.REACT_APP_BLOG_NAME}`;
   }, []);
 
   return (

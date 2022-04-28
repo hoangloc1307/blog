@@ -16,7 +16,7 @@ function Home() {
 
   useEffect(() => {
     //Set title
-    document.title = 'Blog';
+    document.title = process.env.REACT_APP_BLOG_NAME;
 
     //Get posts
     const fetchPosts = () => {

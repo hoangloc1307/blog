@@ -6,10 +6,8 @@ import clsx from 'clsx';
 
 function NotFound() {
   useEffect(() => {
-    document.title = 'Page Not Found | Blog';
+    document.title = `Page Not Found | ${process.env.REACT_APP_BLOG_NAME}`;
   }, []);
-
-  console.log(process.env.REACT_APP_BLOG_NAME);
 
   return (
     <div className={clsx(c.notFound, 'container')}>

@@ -37,7 +37,7 @@ function PostDetail() {
   useEffect(() => {
     //Edit title
     if (post) {
-      document.title = `${post.title} | Blog`;
+      document.title = `${post.title} | ${process.env.REACT_APP_BLOG_NAME}`;
     }
   }, [post]);
 

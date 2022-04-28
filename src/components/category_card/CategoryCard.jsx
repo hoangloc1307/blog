@@ -12,7 +12,12 @@ function CategoryCard() {
     <div className={clsx(c.categoryCard, 'container')}>
       {categories.map((category) => (
         //Category Card Item
-        <Link to={`/${category.title}`} key={category.id} className={c.card}>
+        <Link
+          to={`/${category.title.toLowerCase()}`}
+          key={category.id}
+          className={c.card}
+          state={{ categoryTitle: category.title }}
+        >
           <div
             className={c.cardContainer}
             style={{ backgroundImage: `url(${category.image})` }}
