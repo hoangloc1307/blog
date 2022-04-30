@@ -34,10 +34,10 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div className={c.home}>
       <Hero />
       <CategoryCard />
-      <div className={clsx(c.home, 'container')}>
+      <div className={clsx(c.content, 'container')}>
         <div className={c.posts}>
           <Posts posts={posts} />
         </div>
@@ -46,7 +46,7 @@ function Home() {
         </div>
       </div>
       <Slider slides={slides} show={4} />
-    </>
+    </div>
   );
 }
 

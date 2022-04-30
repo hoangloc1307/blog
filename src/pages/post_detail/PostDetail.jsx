@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import c from './PostDetail.module.scss';
-import CategoryAndSearch from '../../components/category_and_search/CategoryAndSearch';
 import { Link, useLocation } from 'react-router-dom';
 import { postList } from '../../assets/fake_data/post';
 import Post from '../../components/post/Post';
@@ -10,26 +9,22 @@ import NotFound from '../not_found/NotFound';
 function PostDetail() {
   const location = useLocation();
   const path = location.pathname.split('/')[2];
-  //State
   const [post, setPost] = useState({});
   const [recentPosts, setRecentPosts] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
       const result = postList;
-
       //Get post detail
       const postDetail = result.filter(
         (p) => path === p.title.toLowerCase().replaceAll(' ', '-')
       );
       setPost(...postDetail);
-
       //Get recent posts
       const postsRecent = result.slice(0, 3);
       setRecentPosts(postsRecent);
     };
     fetchPost();
-
     //Scroll to top when change post
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [path]);
@@ -44,9 +39,7 @@ function PostDetail() {
   return (
     <>
       {post ? (
-        <div className='container'>
-          <CategoryAndSearch></CategoryAndSearch>
-
+        <div className={c.postDetail}>
           {/* Post Content */}
           <div className={c.postContainer}>
             <h2 className={c.postTitle}>{post.title}</h2>

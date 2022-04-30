@@ -1,11 +1,13 @@
-.home{
+.home {
+  .content {
     display: flex;
     justify-content: space-between;
     margin-top: 60px;
     .posts {
-        width: 65%;
+      width: 65%;
     }
-    .author{
-        width: 30%;
+    .author {
+      width: 30%;
     }
+  }
 }
