@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { useEffect } from 'react';
-
 import c from './About.module.scss';
+import ContactForm from '../../components/contact_form/ContactForm';
 
 function About() {
   useEffect(() => {
@@ -32,18 +32,7 @@ function About() {
           business and what makes you different from your competitors. Make your
           company stand out and show your visitors who you are.
         </p>
-        <div className={c.aboutForm}>
-          <h3 className={c.formTitle}>Drop me a line</h3>
-          <div className={c.inputContainer}>
-            <input type='text' className={c.formInput} placeholder='Name' />
-            <input type='text' className={c.formInput} placeholder='Email' />
-          </div>
-          <textarea
-            className={c.formTextarea}
-            placeholder='Type your message here...'
-          ></textarea>
-          <button className={c.formButton}>Submit</button>
-        </div>
+        <ContactForm />
       </div>
     </div>
   );
