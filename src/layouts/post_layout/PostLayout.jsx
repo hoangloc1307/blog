@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import CategoryAndSearch from '../../components/category_and_search/CategoryAndSearch';
+import CategoryAndSearch from '~/components/category_and_search/CategoryAndSearch';
 
 function PostLayout() {
   const [showSearch, setShowSearch] = useState(false);

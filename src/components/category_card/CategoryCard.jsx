@@ -3,7 +3,7 @@ import React, { memo, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import c from './CategoryCard.module.scss';
-import { CategoryContext } from '../../App';
+import { CategoryContext } from '~/App';
 
 function CategoryCard() {
   const categories = useContext(CategoryContext);

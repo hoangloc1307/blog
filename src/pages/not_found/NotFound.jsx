@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import c from './NotFound.module.scss';
-import notFoundImage from '../../assets/images/notfound.png';
+import notFoundImage from '~/assets/images/notfound.png';
 import clsx from 'clsx';
 
 function NotFound() {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import c from './PostDetail.module.scss';
 import { Link, useLocation } from 'react-router-dom';
-import { postList } from '../../assets/fake_data/post';
-import Post from '../../components/post/Post';
-import Comment from '../../components/comment/Comment';
+import { postList } from '~/assets/fake_data/post';
+import Post from '~/components/post/Post';
+import Comment from '~/components/comment/Comment';
 import NotFound from '../not_found/NotFound';
 
 function PostDetail() {

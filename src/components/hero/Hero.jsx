@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import heroImage from '../../assets/images/hero_img.jpg';
+import heroImage from '~/assets/images/hero_img.jpg';
 import c from './Hero.module.scss';
 
 function Hero() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import loadingImg from '../../assets/images/loading.gif';
+import loadingImg from '~/assets/images/loading.gif';
 import c from './Loading.module.scss';
 
 function Loading() {

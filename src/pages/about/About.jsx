@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { useEffect } from 'react';
 import c from './About.module.scss';
-import ContactForm from '../../components/contact_form/ContactForm';
+import ContactForm from '~/components/contact_form/ContactForm';
 
 function About() {
   useEffect(() => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import c from './Post.module.scss';
-import avatar from '../../assets/images/avatar.jpg';
+import avatar from '~/assets/images/avatar.jpg';
 import clsx from 'clsx';
 
 function Post({ post, pc }) {

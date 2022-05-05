@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import c from './Home.module.scss';
-import { postList } from '../../assets/fake_data/post';
-import { slideList } from '../../assets/fake_data/slide';
-import Hero from '../../components/hero/Hero';
-import CategoryCard from '../../components/category_card/CategoryCard';
-import Posts from '../../components/posts/Posts';
-import SideBar from '../../components/sidebar/SideBar';
-import Slider from '../../components/slider/Slider';
+import { postList } from '~/assets/fake_data/post';
+import { slideList } from '~/assets/fake_data/slide';
+import Hero from '~/components/hero/Hero';
+import CategoryCard from '~/components/category_card/CategoryCard';
+import Posts from '~/components/posts/Posts';
+import SideBar from '~/components/sidebar/SideBar';
+import Slider from '~/components/slider/Slider';
 import clsx from 'clsx';
 
 function Home() {

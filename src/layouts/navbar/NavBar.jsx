@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import c from './NavBar.module.scss';
-import { CategoryContext } from '../../App';
+import { CategoryContext } from '~/App';
 
 function NavBar() {
   const categories = useContext(CategoryContext);
